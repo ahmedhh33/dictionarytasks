@@ -36,6 +36,49 @@ namespace DictionaryTask
             }
             Console.WriteLine();
 
+            Console.WriteLine("Task3 phonebiik");
+
+            bool isRunning = true;
+
+            while (isRunning)
+            {
+                Console.WriteLine("Phone Book Program");
+                Console.WriteLine("1. Add Contact");
+                Console.WriteLine("2. Search Contact");
+                Console.WriteLine("3. Delete Contact");
+                Console.WriteLine("4. Exit");
+                Console.Write("Enter your choice: ");
+
+                int choice;
+                if (int.TryParse(Console.ReadLine(), out choice))
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            phoonBook.AddContact();
+                            break;
+                        case 2:
+                            phoonBook.SearchContact();
+                            break;
+                        case 3:
+                            phoonBook.DeleteContact();
+                            break;
+                        case 4:
+                            isRunning = false;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                }
+
+                Console.WriteLine();
+            }
+
         }
         static Dictionary<string, int> CountWordFrequency(string sentence)
         {
