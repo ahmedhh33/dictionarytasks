@@ -15,7 +15,7 @@ namespace DictionaryTask
             Console.Write("Enter name: ");
             string name = Console.ReadLine();
 
-            if (phoneBook.ContainsKey(name))
+            if (phoneBook.ContainsKey(name))//name is kye so it must be uniqe
             {
                 Console.WriteLine("Contact already exists.");
             }
@@ -23,7 +23,7 @@ namespace DictionaryTask
             {
                 Console.Write("Enter phone number: ");
                 string phoneNumber = Console.ReadLine();
-                phoneBook[name] = phoneNumber;
+                phoneBook[name] = phoneNumber;//adding the value phoone number to the kye name
                 Console.WriteLine("Contact added successfully.");
             }
         }
