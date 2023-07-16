@@ -15,7 +15,8 @@ namespace DictionaryTask
                 Console.WriteLine("2. Unique Elements");
                 Console.WriteLine("3. Phone Book");
                 Console.WriteLine("4. Student Grade Book");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Intersections");
+                Console.WriteLine("6. Exit");
                 Console.Write("Enter your choice: ");
                 int choice1;
                 if (int.TryParse(Console.ReadLine(), out choice1))
@@ -124,7 +125,6 @@ namespace DictionaryTask
                                                 StudentGradeBook.CalculateAverageGradeForStudent();
                                                 break;
                                             case 3:
-                                                break;
                                                 StudentGradeBook.DisplayAverageGradesForAllStudents();
                                                 break;
                                             case 4:
@@ -145,6 +145,9 @@ namespace DictionaryTask
                             }
                             break;
                         case 5:
+                            GetInterseption();
+                            break;
+                        case 6:
                             isProgramRunning = false;
                             break;
                         default:
@@ -176,6 +179,27 @@ namespace DictionaryTask
             return Uniqe;
         }
 
+        public static void GetInterseption()
+        {
 
+            Console.WriteLine("Enter first input array (seperate between nubers by space)");
+            string array1 = Console.ReadLine();
+            int[] arr1 = array1.Split(' ').Select(int.Parse).ToArray();
+            HashSet<int> Interseption1 = new HashSet<int>(arr1);
+            Console.WriteLine("Enter second input array (seperate between nubers by space)");
+            string array2 = Console.ReadLine();
+            int[] arr2 = array2.Split(' ').Select(int.Parse).ToArray();
+            HashSet<int> Intrseption2 = new HashSet<int>(arr2);
+
+            HashSet<int> ans = new HashSet<int>(Interseption1);
+            ans.IntersectWith(Intrseption2);
+            Console.WriteLine($"the interseption number are: ");
+            foreach (int i in ans)
+            {
+                Console.Write(i+" ");
+            }
+            Console.WriteLine();
+            
+        }
     }
 }
